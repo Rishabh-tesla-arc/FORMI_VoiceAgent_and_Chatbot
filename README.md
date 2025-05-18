@@ -2,7 +2,7 @@
 
 ## Link and Details -
 1. Knowledge Base ID from the Retell AI -> knowledge_base_6111f1fec6960ae4
-2. Post-Call - [Post-Call Analysis Excel Sheet](https://docs.google.com/spreadsheets/d/1AD_SYFYKVNCB9ap6sbP-it4f2eSPgZC6ThrDhhPkwZM)
+2. Post-Call Excel Sheet -> [Post-Call Analysis Excel Sheet](https://docs.google.com/spreadsheets/d/1AD_SYFYKVNCB9ap6sbP-it4f2eSPgZC6ThrDhhPkwZM)
 3. Agent Linked Phone Number ->  +12676278065
 
 
@@ -16,6 +16,11 @@
 
  ## Image of Agent Conversation Flow - 
  <img width="959" alt="image" src="https://github.com/user-attachments/assets/d53dcce0-4efb-4cb7-8ee0-5bf13130e797" />
+
+
+ ## Image of Webhook Integration - 
+ <img width="959" alt="image" src="https://github.com/user-attachments/assets/428e7f32-7672-422d-986d-e9dcc2a8aea5" />
+
 
  
 
