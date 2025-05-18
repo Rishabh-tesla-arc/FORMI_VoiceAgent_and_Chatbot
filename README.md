@@ -2,11 +2,10 @@
 
 ## Link and Details -
 1. Knowledge Base ID from the Retell AI -> knowledge_base_6111f1fec6960ae4
-2. Post-Call Analysis Excel Sheet -> https://docs.google.com/spreadsheets/d/1AD_SYFYKVNCB9ap6sbP-it4f2eSPgZC6ThrDhhPkwZM/edit?usp=sharing
+2. [Post-Call Analysis Excel Sheet](https://docs.google.com/spreadsheets/d/1AD_SYFYKVNCB9ap6sbP-it4f2eSPgZC6ThrDhhPkwZM)
 3. Agent Linked Phone Number ->  +12676278065
 
- ## Demo Video 
- https://github.com/user-attachments/assets/ce66a888-4aca-4757-9618-2e49446fc1f5
+
  ## Demo Video 
 [Watch Demo Video](https://github.com/user-attachments/assets/ce66a888-4aca-4757-9618-2e49446fc1f5)
 
