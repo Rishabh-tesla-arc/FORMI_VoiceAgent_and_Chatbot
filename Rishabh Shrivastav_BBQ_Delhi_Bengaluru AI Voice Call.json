@@ -1,0 +1,350 @@
+{
+  "agent_id": "",
+  "channel": "voice",
+  "last_modification_timestamp": 1747558641673,
+  "agent_name": "BBQ_Delhi_Bengaluru AI Voice Call",
+  "response_engine": {
+    "type": "conversation-flow",
+    "version": 1,
+    "conversation_flow_id": "conversation_flow_30deb9a5d49e"
+  },
+  "webhook_url": "https://hook.eu2.make.com/b7pkv3kg6296ui2jqg7eowa9tbujiuzc",
+  "language": "en-US",
+  "opt_out_sensitive_data_storage": false,
+  "opt_in_signed_url": false,
+  "end_call_after_silence_ms": 91000,
+  "post_call_analysis_data": [
+    {
+      "name": "SeriveInterest",
+      "description": "The call can be categorized into this",
+      "type": "string",
+      "examples": [
+        "New Booking Requests",
+        "Booking Cancellations",
+        "Booking Modifications",
+        "Feedback and Complaints",
+        "General Inquiries (menu details)"
+      ]
+    }
+  ],
+  "version": 1,
+  "is_published": true,
+  "version_title": "Final_Version",
+  "post_call_analysis_model": "gpt-4o-mini",
+  "voice_id": "11labs-Brian",
+  "enable_backchannel": true,
+  "max_call_duration_ms": 297000,
+  "interruption_sensitivity": 0.8,
+  "normalize_for_speech": true,
+  "enable_voicemail_detection": true,
+  "voicemail_message": "",
+  "voicemail_detection_timeout_ms": 30000,
+  "allow_user_dtmf": true,
+  "user_dtmf_options": {},
+  "retellLlmData": null,
+  "conversationFlow": {
+    "conversation_flow_id": "conversation_flow_30deb9a5d49e",
+    "version": 1,
+    "global_prompt": "Role:\nYou are a Conversational AI agent for Barbeque Nation, responsible for handling customer inquiries, booking management, and providing accurate information about BBQ Nation outlets in Delhi and Bengaluru. Your primary role is to deliver seamless customer support through precise data collection, confirmation, and informative responses, while adhering to predefined guidelines and transition rules to ensure a smooth conversational experience.\n\nGuardrails:\nAccuracy: Provide responses based on verified information only.\nConsistency: Maintain consistent tone and language throughout the conversation.\nData Privacy: Do not store or share sensitive user information without explicit consent.\nProfessionalism: Use polite and clear language to ensure a positive customer experience.\nSafety Checks: Ensure no harmful, offensive, or inappropriate content is generated.\nAdaptability: Transition seamlessly between states based on user inputs and intent.\nError Handling: Promptly address unclear or incomplete inputs with clarifying questions.\n\nDo's:\nCollect the caller's city and location in city.\nCollect and confirm booking details accurately (e.g., date, time, number of guests).\nInform customers about available slots, pricing, and ongoing offers based on the location.\nPropose alternatives if a requested slot or service is unavailable.\nTransition smoothly between collection, confirmation, and informative states.\nUse user-friendly language and keep responses concise.\n\nDon'ts:\nDo not make assumptions about customer preferences without explicit input.\nDo not provide unverified information or promises.\nAvoid using technical jargon that may confuse customers.\nDo not proceed without confirming critical details like booking date and time.\n\nProhibited Actions:\nGenerating false or misleading information.\nSharing confidential business or customer information without authorization.\nDiscriminatory, offensive, or disrespectful language.\nCollecting or storing sensitive personal data without consent.\n\nBest Practices:\nUse positive, polite, and engaging language.\nPromptly acknowledge customer inputs before transitioning to the next state.\nHandle negative scenarios like unavailable dates or incorrect inputs gracefully.\nEnsure every response aligns with the customer's intent and context.",
+    "nodes": [
+      {
+        "instruction": {
+          "type": "static_text",
+          "text": "How can I help you today?\n\n"
+        },
+        "name": "Welcome Node",
+        "edges": [
+          {
+            "destination_node_id": "node-1747490959269",
+            "id": "edge-2",
+            "transition_condition": {
+              "type": "prompt",
+              "prompt": "Caller is giving feedback or filing a complaint"
+            }
+          },
+          {
+            "destination_node_id": "node-1747492711150",
+            "id": "edge-1747487861216",
+            "transition_condition": {
+              "type": "prompt",
+              "prompt": "Caller is asking for a new booking"
+            }
+          },
+          {
+            "destination_node_id": "node-1747493425392",
+            "id": "edge-1747487882541",
+            "transition_condition": {
+              "type": "prompt",
+              "prompt": "Caller is asking for cancellation or modification"
+            }
+          },
+          {
+            "destination_node_id": "node-1747552430374",
+            "id": "edge-1747504982148",
+            "transition_condition": {
+              "type": "prompt",
+              "prompt": "General Questions or FAQs.\n"
+            }
+          }
+        ],
+        "global_node_setting": {
+          "condition": "if the caller's location is delhi or bengaluru."
+        },
+        "start_speaker": "agent",
+        "id": "start-node-1747482447189",
+        "type": "conversation",
+        "display_position": {
+          "x": 525.5329603455086,
+          "y": 1029.7365538683603
+        }
+      },
+      {
+        "instruction": {
+          "type": "prompt",
+          "text": "Apologies, and escalate the feedback or the complaint. Gather the following information without asking anything from the caller do it in background.\n\nInformation Required: \n- Collect callback data and time"
+        },
+        "name": "Feedback/Complaint",
+        "edges": [
+          {
+            "destination_node_id": "node-1747494641922",
+            "id": "edge-1747490959269",
+            "transition_condition": {
+              "type": "prompt",
+              "prompt": "Once all the required informations are collected."
+            }
+          }
+        ],
+        "global_node_setting": {
+          "condition": "If the caller has feedback to give or a complaint to file."
+        },
+        "id": "node-1747490959269",
+        "type": "conversation",
+        "display_position": {
+          "x": 968.2276292193387,
+          "y": 634.3312712005186
+        }
+      },
+      {
+        "instruction": {
+          "type": "prompt",
+          "text": "Gather the following information in a conversational manner. Ask these questions one at a time to not overwhelm the caller.\n\nInformation Required:\n- Date and Time\n- Collect Pax Size"
+        },
+        "name": "New Booking/ Reservation",
+        "edges": [
+          {
+            "destination_node_id": "node-1747494641922",
+            "id": "edge-1747492711150",
+            "transition_condition": {
+              "type": "prompt",
+              "prompt": "Once all the required informations are collected."
+            }
+          }
+        ],
+        "global_node_setting": {
+          "condition": "If the user want to make a new reservation or booking."
+        },
+        "id": "node-1747492711150",
+        "type": "conversation",
+        "display_position": {
+          "x": 969.9267308386259,
+          "y": 1108.3312712005186
+        }
+      },
+      {
+        "instruction": {
+          "type": "prompt",
+          "text": "Gather the following information in a conversational manner. Ask these questions one at a time to not overwhelm the caller.\n\nInformation Required:\n- Date and Time\n- Name of the caller (compulsory) "
+        },
+        "name": "Cancellation/Modification",
+        "edges": [
+          {
+            "destination_node_id": "node-1747493738603",
+            "id": "edge-1747493425392",
+            "transition_condition": {
+              "type": "prompt",
+              "prompt": "If all the required information is taken from the caller. If the user wants to cancel the reservation"
+            }
+          },
+          {
+            "destination_node_id": "node-1747493816852",
+            "id": "edge-1747493895256",
+            "transition_condition": {
+              "type": "prompt",
+              "prompt": "If all the required information is taken from the caller.. If the user wants to modify the reservation."
+            }
+          }
+        ],
+        "global_node_setting": {
+          "condition": "If the caller wants to make a cancellation or modification to the reservation"
+        },
+        "id": "node-1747493425392",
+        "type": "conversation",
+        "display_position": {
+          "x": 787.7241815180947,
+          "y": 1563.6451291674425
+        }
+      },
+      {
+        "instruction": {
+          "type": "prompt",
+          "text": "Cancel the reservation"
+        },
+        "name": "Cancellation",
+        "edges": [
+          {
+            "destination_node_id": "node-1747494641922",
+            "id": "edge-1747493738603-7gxklaz6q",
+            "transition_condition": {
+              "type": "prompt",
+              "prompt": "Once the reservation is cancelled."
+            }
+          }
+        ],
+        "global_node_setting": {
+          "condition": "If the user wants to cancel the reservation"
+        },
+        "id": "node-1747493738603",
+        "type": "conversation",
+        "display_position": {
+          "x": 1342.4676021587188,
+          "y": 1124.009305489738
+        }
+      },
+      {
+        "instruction": {
+          "type": "prompt",
+          "text": "Gather the following information in a conversational manner. Ask these questions one at a time to not overwhelm the caller.\n\nInformation Required:\n- new Date and Time"
+        },
+        "name": "Modification",
+        "edges": [
+          {
+            "destination_node_id": "node-1747494641922",
+            "id": "edge-1747493816852-8px4ronf7",
+            "transition_condition": {
+              "type": "prompt",
+              "prompt": "Once all the required informations are collected."
+            }
+          }
+        ],
+        "global_node_setting": {
+          "condition": "If the caller wants to make modification to the reservation"
+        },
+        "id": "node-1747493816852",
+        "type": "conversation",
+        "display_position": {
+          "x": 1208.1454973015343,
+          "y": 2005.7199401139383
+        }
+      },
+      {
+        "name": "End Call",
+        "id": "node-1747494577602",
+        "type": "end",
+        "display_position": {
+          "x": 1775.8007459932765,
+          "y": 2013.6923406725357
+        },
+        "instruction": {
+          "type": "prompt",
+          "text": "Politely end the call"
+        }
+      },
+      {
+        "instruction": {
+          "type": "prompt",
+          "text": "Confirm all the relevant informations and chages to the user by repeating the changes. Incase of any error, correct the change.\n\n"
+        },
+        "name": "Confirm Changes",
+        "edges": [
+          {
+            "destination_node_id": "node-1747494577602",
+            "id": "edge-1747494641922",
+            "transition_condition": {
+              "type": "prompt",
+              "prompt": "Once the changes are confirmed."
+            }
+          }
+        ],
+        "global_node_setting": {
+          "condition": "Confirm Changes"
+        },
+        "id": "node-1747494641922",
+        "type": "conversation",
+        "display_position": {
+          "x": 1394.1059449302923,
+          "y": 1569.5159553352757
+        }
+      },
+      {
+        "name": "Conversation",
+        "edges": [
+          {
+            "destination_node_id": "start-node-1747482447189",
+            "id": "edge-1747496657314",
+            "transition_condition": {
+              "type": "prompt",
+              "prompt": "if the caller's location is delhi or bengaluru."
+            }
+          },
+          {
+            "destination_node_id": "node-1747494577602",
+            "id": "edge-1747497227682",
+            "transition_condition": {
+              "type": "prompt",
+              "prompt": "if the location is different"
+            }
+          }
+        ],
+        "id": "node-1747496657314",
+        "type": "conversation",
+        "display_position": {
+          "x": 277,
+          "y": 1666
+        },
+        "instruction": {
+          "type": "static_text",
+          "text": "Hello, this is Barbeque Nation. I'm Rishabh. We currently operate in Delhi and Bengaluru. Can you tell me your location?"
+        }
+      },
+      {
+        "instruction": {
+          "type": "prompt",
+          "text": "Answer the caller's questions on menus, available food items from the Knowledge Base in a conversational manner."
+        },
+        "name": "Questions",
+        "edges": [
+          {
+            "destination_node_id": "node-1747494577602",
+            "id": "edge-1747552430374",
+            "transition_condition": {
+              "type": "prompt",
+              "prompt": "Once all the questions has been answered."
+            }
+          }
+        ],
+        "global_node_setting": {
+          "condition": "The caller wants to ask questions or inquire about the menu served or the food items available at the BBQ."
+        },
+        "id": "node-1747552430374",
+        "type": "conversation",
+        "display_position": {
+          "x": 684.7979970070778,
+          "y": 2020.9899675341007
+        }
+      }
+    ],
+    "start_node_id": "node-1747496657314",
+    "start_speaker": "agent",
+    "model_choice": {
+      "type": "cascading",
+      "model": "gpt-4o-mini"
+    },
+    "knowledge_base_ids": [],
+    "begin_tag_display_position": {
+      "x": 0,
+      "y": 1820
+    },
+    "is_published": true
+  },
+  "llmURL": null
+}
