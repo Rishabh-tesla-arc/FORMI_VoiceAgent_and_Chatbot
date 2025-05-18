@@ -6,7 +6,7 @@
 3. Agent Linked Phone Number - +12676278065
 
 
- Image of Knowledge Base in Retell AI - 
+ ## Image of Knowledge Base in Retell AI - 
  <img width="959" alt="image" src="https://github.com/user-attachments/assets/7a5c0bab-685a-4fa2-836b-989b55a35a17" />
  
 
